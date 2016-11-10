@@ -4,6 +4,17 @@ This project is used to learn Java benchmarking. The benchmarking tool itself is
 [Oracle Java Benchmarking Harness](http://openjdk.java.net/projects/code-tools/jmh/) which
 we dont use directly but as [Gradle Plugin](https://github.com/melix/jmh-gradle-plugin).
 
+With JMH you can test the performance of Java code. JMH will not just simply execute the test
+methods but also do things like warm up iterations to prevent wrong results because of the JIT
+compiler. Results of such an tests will look like this
+
+```
+# Run complete. Total time: 00:00:13
+
+Benchmark                          Mode  Cnt  Score   Error   Units
+SimpleBenchmark.myFirstBenchmark  thrpt    3  3,728 ± 9,612  ops/ms
+```
+
 ## Run
 
 To execute all Tests in the `com.codecrafters.jmh` package simply run
