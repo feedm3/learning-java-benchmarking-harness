@@ -1,0 +1,31 @@
+plugins {
+    id "java"
+    id "me.champeau.gradle.jmh" version "0.3.1"
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+group 'com.codecrafters'
+version '1.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.1'
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+jmh {
+    include = 'com.codecrafters.jmh.*'
+    fork = 1
+    iterations = 3
+    warmupForks = 1
+    warmupIterations = 3
+    jmhVersion = '1.16'
+}
